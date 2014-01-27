@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>010CreateTestData</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: rgb(88, 72, 246)
+   }
+
+   pre .number {
+     color: rgb(0, 0, 205);
+   }
+
+   pre .comment {
+     color: rgb(76, 136, 107);
+   }
+
+   pre .keyword {
+     color: rgb(0, 0, 255);
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: rgb(3, 106, 7);
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+
+</head>
+
+<body>
+<h1>010CreateTestData</h1>
+
+<h2>Purpose</h2>
+
+<ul>
+<li>Download files from <a href="http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm">FDA.gov</a> and create R data frames</li>
+<li>Join the Product dataset to the Package dataset</li>
+<li>Classify the Package Codes into format types
+
+<ul>
+<li>4-4-2</li>
+<li>5-3-2</li>
+<li>5-4-1</li>
+</ul></li>
+<li>Sample 100 entires from each Package Code format type</li>
+<li>Export to tab-delimited text files</li>
+</ul>
+
+<h2>Download</h2>
+
+<p>Download the zip archive from the <a href="http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm">FDA.gov</a> website. Unzip the archive. Read the two datasets into data frames, <code>dProd</code> for the Product Code table and <code>dPack</code> for the Package Code table.</p>
+
+<p>Code is from <a href="http://stackoverflow.com/a/3053883/1427069">Stackoverflow</a>.</p>
+
+<pre><code class="r">url &lt;- &quot;http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip&quot;
+f &lt;- tempfile()
+download.file(url, f)
+t &lt;- unz(f, &quot;product.txt&quot;)
+dProd &lt;- read.delim(t)
+t &lt;- unz(f, &quot;package.txt&quot;)
+dPack &lt;- read.delim(t)
+unlink(f)
+</code></pre>
+
+<p>Rename variables to lower case.</p>
+
+<pre><code class="r">names(dProd) &lt;- tolower(names(dProd))
+names(dPack) &lt;- tolower(names(dPack))
+</code></pre>
+
+<h2>Join</h2>
+
+<p>Join the Product dataset to the Package dataset.</p>
+
+<pre><code class="r">require(dplyr, quietly = TRUE)
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;
+## 
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+## 
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+</code></pre>
+
+<pre><code class="r">d &lt;- inner_join(dProd, dPack)
+</code></pre>
+
+<pre><code>## Joining by: c(&quot;productid&quot;, &quot;productndc&quot;)
+</code></pre>
+
+<h2>Classify</h2>
+
+<p>Classify the Package Codes into format categories</p>
+
+<ul>
+<li>4-4-2</li>
+<li>5-3-2</li>
+<li>5-4-1</li>
+</ul>
+
+<pre><code class="r">isFmt442 &lt;- grepl(&quot;[[:alnum:]]{4}-[[:alnum:]]{4}-[[:alnum:]]{2}&quot;, d$ndcpackagecode)
+isFmt532 &lt;- grepl(&quot;[[:alnum:]]{5}-[[:alnum:]]{3}-[[:alnum:]]{2}&quot;, d$ndcpackagecode)
+isFmt541 &lt;- grepl(&quot;[[:alnum:]]{5}-[[:alnum:]]{4}-[[:alnum:]]{1}&quot;, d$ndcpackagecode)
+fmt &lt;- rep(NA, length(dPack$ndcpackagecode))
+fmt[isFmt442] &lt;- &quot;4-4-2 format&quot;
+fmt[isFmt532] &lt;- &quot;5-3-2 format&quot;
+fmt[isFmt541] &lt;- &quot;5-4-1 format&quot;
+table(fmt, useNA = &quot;ifany&quot;)
+</code></pre>
+
+<pre><code>## fmt
+## 4-4-2 format 5-3-2 format 5-4-1 format 
+##        21308        80952        44669
+</code></pre>
+
+<pre><code class="r">d$fmtPackageCode &lt;- format(fmt)
+</code></pre>
+
+<h2>Sample</h2>
+
+<p>Use the <code>ndcpackagecode</code> as the sampling frame. Sample 100 entires from each Package Code format type.</p>
+
+<pre><code class="r">frameSampling &lt;- list(type442 = d$ndcpackagecode[d$fmtPackageCode == &quot;4-4-2 format&quot;], 
+    type532 = d$ndcpackagecode[d$fmtPackageCode == &quot;5-3-2 format&quot;], type541 = d$ndcpackagecode[d$fmtPackageCode == 
+        &quot;5-4-1 format&quot;])
+f &lt;- function(x) {
+    sample(x, 100)
+}
+s &lt;- sapply(frameSampling, FUN = f)
+</code></pre>
+
+<p>Rearrange the sample matrix to a vector so it can be used as a lookup.</p>
+
+<pre><code class="r">s &lt;- as.vector(s)
+</code></pre>
+
+<p>Create a data frame of the sampled data.</p>
+
+<pre><code class="r">dSample &lt;- d[d$ndcpackagecode %in% s, ]
+table(dSample$fmtPackageCode)
+</code></pre>
+
+<pre><code>## 
+## 4-4-2 format 5-3-2 format 5-4-1 format 
+##          100          100          100
+</code></pre>
+
+<h2>Export</h2>
+
+<p>Export to tab-delimited text files.</p>
+
+<pre><code class="r">f &lt;- &quot;dataForTesting.txt&quot;
+write.table(dSample, f, quote = FALSE, sep = &quot;\t&quot;, row.names = FALSE)
+</code></pre>
+
+<p>Print a list of variables in the dataset.</p>
+
+<pre><code class="r">names(dSample)
+</code></pre>
+
+<pre><code>##  [1] &quot;productid&quot;                 &quot;productndc&quot;               
+##  [3] &quot;producttypename&quot;           &quot;proprietaryname&quot;          
+##  [5] &quot;proprietarynamesuffix&quot;     &quot;nonproprietaryname&quot;       
+##  [7] &quot;dosageformname&quot;            &quot;routename&quot;                
+##  [9] &quot;startmarketingdate&quot;        &quot;endmarketingdate&quot;         
+## [11] &quot;marketingcategoryname&quot;     &quot;applicationnumber&quot;        
+## [13] &quot;labelername&quot;               &quot;substancename&quot;            
+## [15] &quot;active_numerator_strength&quot; &quot;active_ingred_unit&quot;       
+## [17] &quot;pharm_classes&quot;             &quot;deaschedule&quot;              
+## [19] &quot;ndcpackagecode&quot;            &quot;packagedescription&quot;       
+## [21] &quot;fmtPackageCode&quot;
+</code></pre>
+
+<p>Print a few records from the dataset.</p>
+
+<pre><code class="r">head(dSample)
+</code></pre>
+
+<pre><code>##                                           productid productndc
+## 946  0019-9450_78041916-0dcf-492e-95fe-2eabe940f53a  0019-9450
+## 1169 0024-1535_1d226524-68e6-4137-930c-7d2760c7ff39  0024-1535
+## 1323 0031-2293_d3fdc5ee-9822-3eb8-993d-a3cf276cc600  0031-2293
+## 1556 0049-4960_ffbfb7ed-dd6c-4bd1-9958-29771b36abd1  0049-4960
+## 2102 0065-0431_049b9fcf-0d61-4f1f-bd60-9b048600574e  0065-0431
+## 2107 0065-0474_3c2aecf8-04b4-b1a6-69ff-ad039c2175bb  0065-0474
+##              producttypename                     proprietaryname
+## 946  HUMAN PRESCRIPTION DRUG                 Sodium Iodide I-131
+## 1169 HUMAN PRESCRIPTION DRUG                            Phisohex
+## 1323          HUMAN OTC DRUG CHILDRENS DIMETAPP COLD AND ALLERGY
+## 1556 HUMAN PRESCRIPTION DRUG                              Zoloft
+## 2102          HUMAN OTC DRUG                             Systane
+## 2107          HUMAN OTC DRUG                             Systane
+##      proprietarynamesuffix
+## 946            Therapeutic
+## 1169                      
+## 1323                      
+## 1556                      
+## 2102                      
+## 2107                      
+##                                      nonproprietaryname
+## 946                                sodium iodide, i-131
+## 1169                                    hexachlorophene
+## 1323         brompheniramine maleate, phenylephrine HCl
+## 1556                           SERTRALINE HYDROCHLORIDE
+## 2102 polyethylene glycol 0.4% and propylene glycol 0.3%
+## 2107                                       hypromellose
+##           dosageformname  routename startmarketingdate endmarketingdate
+## 946             SOLUTION       ORAL           20110822               NA
+## 1169            EMULSION    TOPICAL           19760611               NA
+## 1323    TABLET, CHEWABLE       ORAL           20050927               NA
+## 1556 TABLET, FILM COATED       ORAL           19920211               NA
+## 2102     SOLUTION/ DROPS OPHTHALMIC           20090814               NA
+## 2107                 GEL OPHTHALMIC           20121215               NA
+##      marketingcategoryname applicationnumber
+## 946                    NDA         NDA016515
+## 1169                   NDA         NDA006882
+## 1323   OTC MONOGRAPH FINAL           part341
+## 1556                   NDA         NDA019839
+## 2102   OTC MONOGRAPH FINAL           part349
+## 2107   OTC MONOGRAPH FINAL           part349
+##                                                      labelername
+## 946                                            Mallinckrodt Inc.
+## 1169                                     sanofi-aventis U.S. LLC
+## 1323 Richmond Division of Wyeth LLC, a subsidiary of Pfizer Inc.
+## 1556                                                      Roerig
+## 2102                                          Alcon Research Ltd
+## 2107                                    Alcon Laboratories, Inc.
+##                                             substancename
+## 946                                   SODIUM IODIDE I-131
+## 1169                                      HEXACHLOROPHENE
+## 1323 BROMPHENIRAMINE MALEATE; PHENYLEPHRINE HYDROCHLORIDE
+## 1556                             SERTRALINE HYDROCHLORIDE
+## 2102                POLYETHYLENE GLYCOL; PROPYLENE GLYCOL
+## 2107                       HYPROMELLOSE 2910 (4000 MPA.S)
+##      active_numerator_strength active_ingred_unit
+## 946                          5             mCi/mL
+## 1169                        30              mg/mL
+## 1323                    1; 2.5         mg/1; mg/1
+## 1556                        25               mg/1
+## 2102                    .4; .3       mL/mL; mL/mL
+## 2107                         3               mg/g
+##                                                               pharm_classes
+## 946  Radioactive Therapeutic Agent [EPC],Radiopharmaceutical Activity [MoA]
+## 1169                                                       Antiseptic [EPC]
+## 1323                                                                       
+## 1556   Serotonin Reuptake Inhibitor [EPC],Serotonin Uptake Inhibitors [MoA]
+## 2102                                                                       
+## 2107                                                                       
+##      deaschedule ndcpackagecode
+## 946                0019-9450-02
+## 1169               0024-1535-02
+## 1323               0031-2293-21
+## 1556               0049-4960-50
+## 2102               0065-0431-04
+## 2107               0065-0474-02
+##                                                                      packagedescription
+## 946                                    1 VIAL in 1 CAN (0019-9450-02)  &gt; 2 mL in 1 VIAL
+## 1169                                        148 mL in 1 BOTTLE, PLASTIC (0024-1535-02) 
+## 1323 2 BLISTER PACK in 1 CARTON (0031-2293-21)  &gt; 10 TABLET, CHEWABLE in 1 BLISTER PACK
+## 1556                                 50 TABLET, FILM COATED in 1 BOTTLE (0049-4960-50) 
+## 2102                               4 VIAL in 1 CARTON (0065-0431-04)  &gt; .4 mL in 1 VIAL
+## 2107                                                    3.5 g in 1 TUBE (0065-0474-02) 
+##      fmtPackageCode
+## 946    4-4-2 format
+## 1169   4-4-2 format
+## 1323   4-4-2 format
+## 1556   4-4-2 format
+## 2102   4-4-2 format
+## 2107   4-4-2 format
+</code></pre>
+
+</body>
+
+</html>
+
