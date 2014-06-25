@@ -1,0 +1,5 @@
+path <- file.path("H:", "CHSE", "ActiveProjects", "Sandbox", "NDCTranslation")
+f1 <- file.path(path, "createTranslationTable.Rmd")
+f2 <- file.path(path, "README.md")
+require(knitr)
+knit(f1, f2)

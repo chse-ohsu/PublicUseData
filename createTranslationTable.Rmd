@@ -1,0 +1,205 @@
+# Create NDC Translation Table
+
+NDC codes on Oregon APAC and Medicaid prescription drug claims datasets are in an 11-digit non-hyphenated format.
+NDC codes on the data files from the FDA are in a 10-digit hyphenated format.
+The NDC data files from the FDA also contain drug names and classes.
+
+So if one wanted to search for a particular drug or class in the claims data, without knowing which codes to search for, the following sequence of steps would need to be followed.
+
+1. Identify which NDC codes correspond to the drug or class using the FDA data.
+2. Translate the 10-digit hyphenated NDC codes into 11-digit non-hyphenated codes.
+3. Match the desired 11-digit non-hyphenated codes to corresponding claims.
+
+Step 2 necessitates the need for a NDC code translation table. This code describes the creation of such a table.
+
+
+## Steps
+
+1. Download files from [FDA.gov](http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm) and create R data frames
+2. Join the Product dataset to the Package dataset
+3. Classify the Package Codes into format types
+  * 4-4-2
+  * 5-3-2
+  * 5-4-1
+4. Translate the 10-digit hyphenated format to an 11-digit non-hyphenated format
+5. Export to tab-delimited text files
+
+
+## Background
+
+> From: Brie Noble  
+> Sent: Wednesday, January 08, 2014 3:33 PM  
+> To: Benjamin Chan  
+> Cc: Brie Noble; Miriam Elman  
+> Subject: RE: NDC codes  
+> 
+> Hi Ben,
+> 
+> So are the APAC NDC codes 11 digits without hyphens?
+> 
+> I am pretty sure to go from the 10 digit codes with hypens to the 11 digit
+> codes without hyphens you follow this rule:
+> 
+> If the 10 digit format is 4-4-2 meaning ####-####-## then you add a leading
+> zero to the first segment (0####-####-##) and then drop the hyphens so the 11
+> digit code would be 0##########
+> 
+> If the 10 digit format is 5-3-2 meaning #####-###-## then you add a leading
+> zero to the second segment (#####-0###-##) and then drop the hyphens so the 11
+> digit code would be #####0#####
+> 
+> If the 10 digit format is 5-4-1 meaning #####-####-# then you add a leading
+> zero to the second segment (#####-####-0#) and then drop the hyphens so the 11
+> digit code would be #########0#
+> 
+> Hope that makes sense. So if I am reading correctly you will have to take the
+> package codes reported on the FDA website and transform them to the 11 digit
+> code and then merge in with the APAC data.
+> 
+> Let me know if you need help with the programming in SAS, in the past I think
+> I have parsed the string into 3 variables using an array and the scan function
+> with a hyphen for a delimiter and then use the length function to assess the
+> length of each of the parsed string and then add in the leading zero to
+> whichever one doesn’t meet the criteria, (i.e. the first parsed string should
+> be length 5, the second length 4, and the third length 3) then you can
+> concatenate them together.
+
+> Let me know if you have any questions!
+> 
+> Best,  
+> Brie
+> 
+> From: Benjamin Chan  
+> Sent: Wednesday, January 08, 2014 2:58 PM  
+> To: Brie Noble  
+> Subject: NDC codes  
+> 
+> Hey Brie,
+> 
+> A few months ago I asked you about the format of NDC codes in APAC. I’m
+> revisiting this for a different project.
+> 
+> Here’s the information I got from James Oliver over at OHPR when I asked about
+> what format the NDC codes are in in APAC and why I couldn’t merge drug details
+> from the FDA website.
+> 
+>> The NDC field contains package codes in the historical NDC format (length 11,
+>> no delimiter, leading zeros preserved). Eventually insurers will need to move
+>> away from this format, but AFAIK it is still the EDI transaction standard.
+>> 
+>> James
+> 
+> Do you know what this “historical NDC format” is? More importantly, where I
+> can download a database of drug details that uses this format?
+> 
+> For reference, here’s the FDA website from which I’ve downloaded drug
+> information from: [http://www.fda.gov/drugs/informationondrugs/ucm142438.htm](http://www.fda.gov/drugs/informationondrugs/ucm142438.htm).
+> The NDC database file doesn’t seem to be compatible with the “historical NDC
+> format” codes used in APAC.
+> 
+> ~  
+> Benjamin Chan, MS, Research Associate
+
+
+## Download
+
+Download the zip archive from the [FDA.gov](http://www.fda.gov/Drugs/InformationOnDrugs/ucm142438.htm) website.
+Unzip the archive.
+Read the two datasets into data frames, `dProd` for the Product Code table and `dPack` for the Package Code table.
+
+Code is from [Stackoverflow](http://stackoverflow.com/a/3053883/1427069).
+
+```{r}
+url <- "http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip"
+f <- tempfile()
+download.file(url, f)
+t <- unz(f, "product.txt")
+dProd <- read.delim(t, stringsAsFactors=FALSE)
+t <- unz(f, "package.txt")
+dPack <- read.delim(t, stringsAsFactors=FALSE)
+unlink(f)
+```
+
+Rename variables to lower case.
+
+```{r}
+names(dProd) <- tolower(names(dProd))
+names(dPack) <- tolower(names(dPack))
+```
+
+
+## Join
+
+Join the Product dataset to the Package dataset.
+
+```{r}
+require(dplyr, quietly=TRUE)
+d <- inner_join(dProd, dPack)
+```
+
+
+## Classify
+
+Classify the Package Codes into format categories
+
+* 4-4-2
+* 5-3-2
+* 5-4-1
+
+```{r}
+isFmt442 <- grepl("[[:alnum:]]{4}-[[:alnum:]]{4}-[[:alnum:]]{2}", d$ndcpackagecode)
+isFmt532 <- grepl("[[:alnum:]]{5}-[[:alnum:]]{3}-[[:alnum:]]{2}", d$ndcpackagecode)
+isFmt541 <- grepl("[[:alnum:]]{5}-[[:alnum:]]{4}-[[:alnum:]]{1}", d$ndcpackagecode)
+fmt <- rep(NA, nrow(d))
+fmt[isFmt442] <- "4-4-2 format"
+fmt[isFmt532] <- "5-3-2 format"
+fmt[isFmt541] <- "5-4-1 format"
+table(fmt, useNA="ifany")
+d$fmtPackageCode <- format(fmt)
+```
+
+
+## Translate
+
+Split the 10-digit hypenated package code.
+
+```{r}
+ndcSplit <- strsplit(d$ndcpackagecode, "-")
+```
+
+This returns a list. Convert the list to a data frame for easier manipulation.
+
+```{r}
+ndcSplit <- data.frame(matrix(unlist(ndcSplit), ncol=3, byrow=TRUE))
+```
+
+Translate.
+
+```{r}
+d$ndcPackageFmt11[isFmt442] <- paste0("0", ndcSplit$X1[isFmt442],      ndcSplit$X2[isFmt442],      ndcSplit$X3[isFmt442])
+d$ndcPackageFmt11[isFmt532] <- paste0(     ndcSplit$X1[isFmt532], "0", ndcSplit$X2[isFmt532],      ndcSplit$X3[isFmt532])
+d$ndcPackageFmt11[isFmt541] <- paste0(     ndcSplit$X1[isFmt541],      ndcSplit$X2[isFmt541], "0", ndcSplit$X3[isFmt541])
+```
+
+
+## Export
+
+Export to a tab-delimited text file.
+
+```{r}
+f <- "NDCTranslationTable.txt"
+write.table(d, f, quote=FALSE, sep="\t", row.names=FALSE)
+```
+
+Print a list of variables in the dataset.
+
+```{r}
+names(d)
+str(d)
+```
+
+Print a sample of records from the dataset.
+
+```{r}
+d[sample(seq(1, nrow(d)), 10), c("ndcpackagecode", "fmtPackageCode", "ndcPackageFmt11", "substancename")]
+```
