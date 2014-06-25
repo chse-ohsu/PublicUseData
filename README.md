@@ -12,6 +12,8 @@ So if one wanted to search for a particular drug or class in the claims data, wi
 
 Step 2 necessitates the need for a NDC code translation table. This code describes the creation of such a table.
 
+**The tab-delimited translation table file is `NDCTranslationTable.txt`.**
+
 
 ## Steps
 
@@ -272,25 +274,25 @@ d[sample(seq(1, nrow(d)), 10), c("ndcpackagecode", "fmtPackageCode", "ndcPackage
 
 ```
 ##        ndcpackagecode fmtPackageCode ndcPackageFmt11
-## 137395   65162-475-05   5-3-2 format     65162047505
-## 153142   76159-001-00   5-3-2 format     76159000100
-## 109621   57520-0502-1   5-4-1 format     57520050201
-## 144486   67777-234-02   5-3-2 format     67777023402
-## 4709     0113-0612-46   4-4-2 format     00113061246
-## 80056    50436-7376-1   5-4-1 format     50436737601
-## 121058   60971-1176-6   5-4-1 format     60971117606
-## 96401    54868-1780-2   5-4-1 format     54868178002
-## 56760    41163-828-04   5-3-2 format     41163082804
-## 2228     0067-2055-94   4-4-2 format     00067205594
-##                                                                                                                                                                                                                                                                                                                                                                                     substancename
-## 137395                                                                                                                                                                                                                                                                                                                                                                      NORETHINDRONE ACETATE
-## 153142                                                                                                                                                                                                                                                                                                                                                                           TITANIUM DIOXIDE
-## 109621 ARSENIC TRIOXIDE; ARTEMISIA ABROTANUM FLOWERING TOP; BARIUM CHLORIDE DIHYDRATE; CLAVICEPS PURPUREA SCLEROTIUM; HELLEBORUS NIGER ROOT; HUMAN CHORIONIC GONADOTROPIN; LYCOPODIUM CLAVATUM SPORE; NIACINAMIDE; OYSTER SHELL CALCIUM CARBONATE, CRUDE; SEMECARPUS ANACARDIUM JUICE; SILICON DIOXIDE; STRYCHNOS IGNATII SEED; SUS SCROFA THYMUS; SUS SCROFA THYROID; TRIBASIC CALCIUM PHOSPHATE
-## 144486                                                                                                                                                                                                                                                                                                                                                                        MENTHOL; ZINC OXIDE
-## 4709                                                                                                                                                                                                                                                                                                                                                                                   LORATADINE
-## 80056                                                                                                                                                                                                                                                                                                                                                                   HYDRALAZINE HYDROCHLORIDE
-## 121058                                                                                                                                                                                                                                                                                                                                                                                     OXYGEN
-## 96401                                                                                                                                                                                                                                                                                                                                                                      PENICILLIN V POTASSIUM
-## 56760                                                                                                                                                                                                                                                                                                                                                                              SALICYLIC ACID
-## 2228                                                                                                                                                                                                                                                                                                                                                       ACETAMINOPHEN; DIPHENHYDRAMINE CITRATE
+## 135053   64764-543-05   5-3-2 format     64764054305
+## 3185     0078-0612-34   4-4-2 format     00078061234
+## 32868    16714-404-01   5-3-2 format     16714040401
+## 114468   59503-2605-2   5-4-1 format     59503260502
+## 30094    14783-253-02   5-3-2 format     14783025302
+## 112252   58194-001-01   5-3-2 format     58194000101
+## 145719   68084-381-01   5-3-2 format     68084038101
+## 10079    0299-3913-01   4-4-2 format     00299391301
+## 17094    0603-2337-32   4-4-2 format     00603233732
+## 139455   65862-155-99   5-3-2 format     65862015599
+##                                                           substancename
+## 135053                                                     LANSOPRAZOLE
+## 3185   ALISKIREN HEMIFUMARATE; AMLODIPINE BESYLATE; HYDROCHLOROTHIAZIDE
+## 32868                                                                  
+## 114468                                                          ALCOHOL
+## 30094                                      OCTINOXATE; TITANIUM DIOXIDE
+## 112252                                                          ALCOHOL
+## 145719                                             BENZTROPINE MESYLATE
+## 10079                               AVOBENZONE; OCTISALATE; OCTOCRYLENE
+## 17094                                  ACETAMINOPHEN; CODEINE PHOSPHATE
+## 139455                             PAROXETINE HYDROCHLORIDE HEMIHYDRATE
 ```

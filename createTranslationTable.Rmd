@@ -12,6 +12,8 @@ So if one wanted to search for a particular drug or class in the claims data, wi
 
 Step 2 necessitates the need for a NDC code translation table. This code describes the creation of such a table.
 
+**The tab-delimited translation table file is `NDCTranslationTable.txt`.**
+
 
 ## Steps
 
