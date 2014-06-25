@@ -12,7 +12,7 @@ So if one wanted to search for a particular drug or class in the claims data, wi
 
 Step 2 necessitates the need for a NDC code translation table. This code describes the creation of such a table.
 
-**The tab-delimited translation table file is `NDCTranslationTable.txt`.**
+**The tab-delimited translation table file is in the zip archive, `NDCTranslationTable.zip`.**
 
 
 ## Steps
@@ -25,6 +25,7 @@ Step 2 necessitates the need for a NDC code translation table. This code describ
   * 5-4-1
 4. Translate the 10-digit hyphenated format to an 11-digit non-hyphenated format
 5. Export to tab-delimited text files
+6. Create a zip archive for easy downloading
 
 
 ## Background
@@ -274,25 +275,38 @@ d[sample(seq(1, nrow(d)), 10), c("ndcpackagecode", "fmtPackageCode", "ndcPackage
 
 ```
 ##        ndcpackagecode fmtPackageCode ndcPackageFmt11
-## 135053   64764-543-05   5-3-2 format     64764054305
-## 3185     0078-0612-34   4-4-2 format     00078061234
-## 32868    16714-404-01   5-3-2 format     16714040401
-## 114468   59503-2605-2   5-4-1 format     59503260502
-## 30094    14783-253-02   5-3-2 format     14783025302
-## 112252   58194-001-01   5-3-2 format     58194000101
-## 145719   68084-381-01   5-3-2 format     68084038101
-## 10079    0299-3913-01   4-4-2 format     00299391301
-## 17094    0603-2337-32   4-4-2 format     00603233732
-## 139455   65862-155-99   5-3-2 format     65862015599
-##                                                           substancename
-## 135053                                                     LANSOPRAZOLE
-## 3185   ALISKIREN HEMIFUMARATE; AMLODIPINE BESYLATE; HYDROCHLOROTHIAZIDE
-## 32868                                                                  
-## 114468                                                          ALCOHOL
-## 30094                                      OCTINOXATE; TITANIUM DIOXIDE
-## 112252                                                          ALCOHOL
-## 145719                                             BENZTROPINE MESYLATE
-## 10079                               AVOBENZONE; OCTISALATE; OCTOCRYLENE
-## 17094                                  ACETAMINOPHEN; CODEINE PHOSPHATE
-## 139455                             PAROXETINE HYDROCHLORIDE HEMIHYDRATE
+## 73202    49349-230-02   5-3-2 format     49349023002
+## 103919   55289-223-60   5-3-2 format     55289022360
+## 81080    50607-5700-2   5-4-1 format     50607570002
+## 27031    11822-9017-2   5-4-1 format     11822901702
+## 12870    0378-6440-05   4-4-2 format     00378644005
+## 11848    0378-1452-05   4-4-2 format     00378145205
+## 105408   55312-908-40   5-3-2 format     55312090840
+## 5104     0115-8322-13   4-4-2 format     00115832213
+## 42152    33992-4949-1   5-4-1 format     33992494901
+## 77153    49972-008-05   5-3-2 format     49972000805
+##                                                             substancename
+## 73202                                             BUPROPION HYDROCHLORIDE
+## 103919                                            TRAZODONE HYDROCHLORIDE
+## 81080                      BENZALKONIUM CHLORIDE; LIDOCAINE HYDROCHLORIDE
+## 27031         AVOBENZONE; HOMOSALATE; OCTISALATE; OCTOCRYLENE; OXYBENZONE
+## 12870                                             VERAPAMIL HYDROCHLORIDE
+## 11848                                                           ESTRADIOL
+## 105408 ACETAMINOPHEN; DEXTROMETHORPHAN HYDROBROMIDE; DOXYLAMINE SUCCINATE
+## 5104                                                           ALPRAZOLAM
+## 42152                                                             ALCOHOL
+## 77153                                              CARBON DIOXIDE; OXYGEN
+```
+
+
+## Create a zip archive
+
+
+```r
+zip("NDCTranslationTable.zip", f, flags="a", zip="C:/Program Files/7-Zip/7z.exe")
+file.remove(f)
+```
+
+```
+## [1] TRUE
 ```

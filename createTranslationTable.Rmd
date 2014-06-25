@@ -12,7 +12,7 @@ So if one wanted to search for a particular drug or class in the claims data, wi
 
 Step 2 necessitates the need for a NDC code translation table. This code describes the creation of such a table.
 
-**The tab-delimited translation table file is `NDCTranslationTable.txt`.**
+**The tab-delimited translation table file is in the zip archive, `NDCTranslationTable.zip`.**
 
 
 ## Steps
@@ -25,6 +25,7 @@ Step 2 necessitates the need for a NDC code translation table. This code describ
   * 5-4-1
 4. Translate the 10-digit hyphenated format to an 11-digit non-hyphenated format
 5. Export to tab-delimited text files
+6. Create a zip archive for easy downloading
 
 
 ## Background
@@ -204,4 +205,12 @@ Print a sample of records from the dataset.
 
 ```{r}
 d[sample(seq(1, nrow(d)), 10), c("ndcpackagecode", "fmtPackageCode", "ndcPackageFmt11", "substancename")]
+```
+
+
+## Create a zip archive
+
+```{r}
+zip("NDCTranslationTable.zip", f, flags="a", zip="C:/Program Files/7-Zip/7z.exe")
+file.remove(f)
 ```
