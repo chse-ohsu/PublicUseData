@@ -10,3 +10,6 @@ An alternative is to use historic BETOS crosswalk files.
 These files are no longer hosted at [CMS.gov](https://www.cms.gov/).
 They are hosted here, instead.
 This BETOS crosswalk files hosted in this repository were downloaded from [CMS.gov](https://www.cms.gov/) before they were taken offline.
+
+Because [CMS.gov](https://www.cms.gov/) is no longer hosting these files,
+the data files in this repository cannot be validated against the original source.
