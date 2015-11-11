@@ -1,0 +1,205 @@
+"READ ME" FILE FOR THE BERENSON-EGGERS TYPE OF SERVICE PUBLIC USE
+FILE  (October 31, 2008)
+
+
+Berenson-Eggers Type of Service Public Use File -- 2009
+
+Contents:      This file contains the Centers for Medicare & Medicaid
+               Services Health Care Common Procedure Coding System
+               (HCPCS) procedure codes and the Berenson-Eggers
+               Type of Service (BETOS) code to which each
+               procedure code is assigned.  Beginning in 1998,
+               this file will also contain discontinued HCPCS
+               codes, which will be identifiable by the presence
+               of a termination date.  
+
+               The BETOS coding system was developed primarily
+               for analyzing the growth in Medicare expenditures. 
+               The coding system covers all HCPCS codes; assigns
+               a HCPCS code to only one BETOS code; consists of
+               readily understood clinical categories (as opposed
+               to statistical or financial categories); consists
+               of categories that permit objective assignment; is
+               stable over time; and is relatively immune to
+               minor changes in technology or practice patterns. 
+
+File Organization:  The file contains one 17-character record for
+                    each unique combination of BETOS code and
+                    HCPCS procedure code.  The file is sorted in
+                    ascending order of HCPCS codes.  
+
+Record Layout: BETPUF08.TXT Record Layout
+
+     Field          Positions     Content        Description
+
+       1              1 - 5      CPT-4/HCPCS      HCPCS codes
+                          			  A0010-V9999
+                         			 AMA/CPT-4 codes    
+                         			  00100-99999
+
+       2                6         Filler
+
+       3              7 - 9      BETOS code     BETOS codes D1A-Z2
+                          			  See codes and 
+                          			descriptions below,  
+                          			presented in seven 
+                        			 major categories.
+
+       4              10-17  Termination Date  The last date on which a 
+                            			procedure code may be
+                           		      used by Medicare providers.
+                            		       Date in YYYYMMDD format.
+ 
+(1) EVALUATION AND MANAGEMENT
+
+    M1A = Office visits - new
+    M1B = Office visits - established
+    M2A = Hospital visit - initial
+    M2B = Hospital visit - subsequent
+    M2C = Hospital visit - critical care
+    M3  = Emergency room visit
+    M4A = Home visit
+    M4B = Nursing home visit
+    M5A = Specialist - pathology (HCPCS moved to T1G in 2003)
+    M5B = Specialist - psychiatry
+    M5C = Specialist - opthamology
+    M5D = Specialist - other
+    M6  = Consultations
+
+(2) PROCEDURES
+
+    P0  = Anesthesia
+    P1A = Major procedure - breast
+    P1B = Major procedure - colectomy
+    P1C = Major procedure - cholecystectomy
+    P1D = Major procedure - turp
+    P1E = Major procedure - hysterctomy
+    P1F = Major procedure - explor/decompr/excis disc
+    P1G = Major procedure - Other
+    P2A = Major procedure, cardiovascular-CABG
+    P2B = Major procedure, cardiovascular-Aneurysm repair
+    P2C = Major Procedure, cardiovascular-Thromboendarterectomy
+    P2D = Major procedure, cardiovascualr-Coronary angioplasty (PTCA)
+    P2E = Major procedure, cardiovascular-Pacemaker insertion
+    P2F = Major procedure, cardiovascular-Other
+    P3A = Major procedure, orthopedic - Hip fracture repair
+    P3B = Major procedure, orthopedic - Hip replacement
+    P3C = Major procedure, orthopedic - Knee replacement
+    P3D = Major procedure, orthopedic - other
+    P4A = Eye procedure - corneal transplant
+    P4B = Eye procedure - cataract removal/lens insertion
+    P4C = Eye procedure - retinal detachment
+    P4D = Eye procedure - treatment of retinal lesions
+    P4E = Eye procedure - other
+    P5A = Ambulatory procedures - skin
+    P5B = Ambulatory procedures - musculoskeletal
+    P5C = Ambulatory procedures - groin hernia repair
+    P5D = Ambulatory procedures - lithotripsy
+    P5E = Ambulatory procedures - other
+    P6A = Minor procedures - skin
+    P6B = Minor procedures - musculoskeletal
+    P6C = Minor procedures - other (Medicare fee schedule)
+    P6D = Minor procedures - other (non-Medicare fee schedule)
+    P7A = Oncology - radiation therapy
+    P7B = Oncology - other
+    P8A = Endoscopy - arthroscopy
+    P8B = Endoscopy - upper gastrointestinal
+    P8C = Endoscopy - sigmoidoscopy
+    P8D = Endoscopy - colonoscopy
+    P8E = Endoscopy - cystoscopy
+    P8F = Endoscopy - bronchoscopy
+    P8G = Endoscopy - laparoscopic cholecystectomy
+    P8H = Endoscopy - laryngoscopy
+    P8I = Endoscopy - other
+    P9A = Dialysis services (Medicare Fee Schedule)
+    P9B = Dialysis services (Non-Medicare Fee Schedule)
+
+(3)  IMAGING
+
+    I1A = Standard imaging - chest
+    I1B = Standard imaging - musculoskeletal
+    I1C = Standard imaging - breast
+    I1D = Standard imaging - contrast gastrointestinal
+    I1E = Standard imaging - nuclear medicine
+    I1F = Standard imaging - other
+    I2A = Advanced imaging - CAT/CT/CTA: brain/head/neck
+    I2B = Advanced imaging - CAT/CT/CTA: other
+    I2C = Advanced imaging - MRI/MRA: brain/head/neck
+    I2D = Advanced imaging - MRI/MRA: other
+    I3A = Echography/ultrasonography - eye
+    I3B = Echography/ultrasonography - abdomen/pelvis
+    I3C = Echography/ultrasonography - heart
+    I3D = Echography/ultrasonography - carotid arteries
+    I3E = Echography/ultrasonography - prostate, transrectal
+    I3F = Echography/ultrasonography - other
+    I4A = Imaging/procedure - heart including cardiac catheter
+    I4B = Imaging/procedure - other
+
+(4) TESTS
+
+    T1A = Lab tests - routine venipuncture (non Medicare fee schedule)
+    T1B = Lab tests - automated general profiles
+    T1C = Lab tests - urinalysis
+    T1D = Lab tests - blood counts
+    T1E = Lab tests - glucose
+    T1F = Lab tests - bacterial cultures
+    T1G = Lab tests - other (Medicare fee schedule)
+    T1H = Lab tests - other (non-Medicare fee schedule)
+    T2A = Other tests - electrocardiograms
+    T2B = Other tests - cardiovascular stress tests
+    T2C = Other tests - EKG monitoring
+    T2D = Other tests - other
+
+
+(5) DURABLE MEDICAL EQUIPMENT
+
+    D1A = Medical/surgical supplies
+    D1B = Hospital beds
+    D1C = Oxygen and supplies
+    D1D = Wheelchairs
+    D1E = Other DME
+    D1F = Prosthestic/Orthotic devices
+    D1G = Drugs Administered through DME
+
+(6) OTHER
+
+    O1A = Ambulance
+    O1B = Chiropractic
+    O1C = Enteral and parenteral
+    O1D = Chemotherapy
+    O1E = Other drugs
+    O1F = Hearing and speech services
+    O1G = Immunizations/Vaccinations
+
+(7) EXCEPTIONS/UNCLASSIFIED
+
+    Y1  = Other - Medicare fee schedule
+    Y2  = Other - non-Medicare fee schedule
+    Z1  = Local codes
+    Z2  = Undefined codes
+
+Source:        Centers for Medicare & Medicaid Services  
+               Health Care Common Procedure Coding System (HCPCS), 2009
+
+Update Schedule:    The file is for a calendar year period and is
+                    updated annually. 
+
+Copyright Warning:  CPT codes and descriptions only are copyright 2008
+                    American Medical Association. All Rights Reserved. 
+                    Applicable FARS\DFARS apply.
+
+                    The 5-character alpha-numeric procedure codes
+                    beginning with D are copyright 2007/8 by the
+                    American Dental Association.  They are part
+                    of the American Dental Association's Current
+                    Dental Terminology--Seventh Edition (CDT-07/08). 
+                    The codes may only be used for purposes
+                    directly related to participation in the
+                    Medicare program.  Permission for any other
+                    use must be obtained from the American Dental
+                    Association.
+
+Disclaimer:         These data are subject to change pending any
+                    coding revisions made to the 2009 HCPCS.
+
+
