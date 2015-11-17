@@ -113,7 +113,7 @@ Read the two datasets into data frames, `dProd` for the Product Code table and `
 Code is from [Stackoverflow](http://stackoverflow.com/a/3053883/1427069).
 
 ```{r}
-url <- "http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip"
+url <- "http://www.accessdata.fda.gov/cder/ndc.zip"
 f <- tempfile()
 download.file(url, f)
 t <- unz(f, "product.txt")

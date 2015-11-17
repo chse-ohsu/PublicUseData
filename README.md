@@ -114,7 +114,7 @@ Code is from [Stackoverflow](http://stackoverflow.com/a/3053883/1427069).
 
 
 ```r
-url <- "http://www.fda.gov/downloads/Drugs/DevelopmentApprovalProcess/UCM070838.zip"
+url <- "http://www.accessdata.fda.gov/cder/ndc.zip"
 f <- tempfile()
 download.file(url, f)
 t <- unz(f, "product.txt")
@@ -171,7 +171,7 @@ table(fmt, useNA="ifany")
 ```
 ## fmt
 ## 4-4-2 format 5-3-2 format 5-4-1 format 
-##        21684        87613        45401
+##        22896       105521        55939
 ```
 
 ```r
@@ -232,7 +232,7 @@ names(d)
 ## [13] "labelername"               "substancename"            
 ## [15] "active_numerator_strength" "active_ingred_unit"       
 ## [17] "pharm_classes"             "deaschedule"              
-## [19] "packagedescription"        "ndcpackagecode"           
+## [19] "ndcpackagecode"            "packagedescription"       
 ## [21] "fmtPackageCode"            "ndcPackageFmt11"
 ```
 
@@ -241,8 +241,8 @@ str(d)
 ```
 
 ```
-## 'data.frame':	154698 obs. of  22 variables:
-##  $ productid                : chr  "0002-1200_4322f73b-3cb5-4e67-a909-0725bbe666c3" "0002-1200_4322f73b-3cb5-4e67-a909-0725bbe666c3" "0002-1200_4322f73b-3cb5-4e67-a909-0725bbe666c3" "0002-1407_46e6b0b2-7a3b-4989-965d-081a6feb267b" ...
+## 'data.frame':	184356 obs. of  22 variables:
+##  $ productid                : chr  "0002-1200_88439a12-a98f-4551-a98f-85422ab2fbcc" "0002-1200_88439a12-a98f-4551-a98f-85422ab2fbcc" "0002-1200_88439a12-a98f-4551-a98f-85422ab2fbcc" "0002-1407_e7af3676-cd9d-4c30-b127-9f6c46ff1589" ...
 ##  $ productndc               : chr  "0002-1200" "0002-1200" "0002-1200" "0002-1407" ...
 ##  $ producttypename          : chr  "HUMAN PRESCRIPTION DRUG" "HUMAN PRESCRIPTION DRUG" "HUMAN PRESCRIPTION DRUG" "HUMAN PRESCRIPTION DRUG" ...
 ##  $ proprietaryname          : chr  "Amyvid" "Amyvid" "Amyvid" "Quinidine Gluconate" ...
@@ -250,7 +250,7 @@ str(d)
 ##  $ nonproprietaryname       : chr  "Florbetapir F 18" "Florbetapir F 18" "Florbetapir F 18" "Quinidine Gluconate" ...
 ##  $ dosageformname           : chr  "INJECTION, SOLUTION" "INJECTION, SOLUTION" "INJECTION, SOLUTION" "SOLUTION" ...
 ##  $ routename                : chr  "INTRAVENOUS" "INTRAVENOUS" "INTRAVENOUS" "INTRAVENOUS" ...
-##  $ startmarketingdate       : int  20120601 20120601 20120601 19510301 20101201 20101201 20010316 20030110 20030110 20030110 ...
+##  $ startmarketingdate       : int  20120601 20120601 20120601 19510301 20141107 20141107 20141107 20141107 20101201 20101201 ...
 ##  $ endmarketingdate         : int  NA NA NA NA NA NA NA NA NA NA ...
 ##  $ marketingcategoryname    : chr  "NDA" "NDA" "NDA" "NDA" ...
 ##  $ applicationnumber        : chr  "NDA202008" "NDA202008" "NDA202008" "NDA007529" ...
@@ -258,10 +258,10 @@ str(d)
 ##  $ substancename            : chr  "FLORBETAPIR F-18" "FLORBETAPIR F-18" "FLORBETAPIR F-18" "QUINIDINE GLUCONATE" ...
 ##  $ active_numerator_strength: chr  "51" "51" "51" "80" ...
 ##  $ active_ingred_unit       : chr  "mCi/mL" "mCi/mL" "mCi/mL" "mg/mL" ...
-##  $ pharm_classes            : chr  "Radioactive Diagnostic Agent for Positron Emission Tomography [EPC],Positron Emitting Activity [MoA]" "Radioactive Diagnostic Agent for Positron Emission Tomography [EPC],Positron Emitting Activity [MoA]" "Radioactive Diagnostic Agent for Positron Emission Tomography [EPC],Positron Emitting Activity [MoA]" "Antiarrhythmic [EPC],Cytochrome P450 2D6 Inhibitor [EPC],Cytochrome P450 2D6 Inhibitors [MoA]" ...
+##  $ pharm_classes            : chr  "Radioactive Diagnostic Agent [EPC],Positron Emitting Activity [MoA]" "Radioactive Diagnostic Agent [EPC],Positron Emitting Activity [MoA]" "Radioactive Diagnostic Agent [EPC],Positron Emitting Activity [MoA]" "Antiarrhythmic [EPC],Cytochrome P450 2D6 Inhibitor [EPC],Cytochrome P450 2D6 Inhibitors [MoA]" ...
 ##  $ deaschedule              : chr  "" "" "" "" ...
-##  $ packagedescription       : chr  "1 VIAL, MULTI-DOSE in 1 CAN (0002-1200-10)  > 10 mL in 1 VIAL, MULTI-DOSE" "1 VIAL, MULTI-DOSE in 1 CAN (0002-1200-30)  > 30 mL in 1 VIAL, MULTI-DOSE" "1 VIAL, MULTI-DOSE in 1 CAN (0002-1200-50)  > 50 mL in 1 VIAL, MULTI-DOSE" "10 mL in 1 VIAL (0002-1407-01) " ...
 ##  $ ndcpackagecode           : chr  "0002-1200-10" "0002-1200-30" "0002-1200-50" "0002-1407-01" ...
+##  $ packagedescription       : chr  "1 VIAL, MULTI-DOSE in 1 CAN (0002-1200-10)  > 10 mL in 1 VIAL, MULTI-DOSE" "1 VIAL, MULTI-DOSE in 1 CAN (0002-1200-30)  > 30 mL in 1 VIAL, MULTI-DOSE" "1 VIAL, MULTI-DOSE in 1 CAN (0002-1200-50)  > 50 mL in 1 VIAL, MULTI-DOSE" "10 mL in 1 VIAL (0002-1407-01) " ...
 ##  $ fmtPackageCode           : chr  "4-4-2 format" "4-4-2 format" "4-4-2 format" "4-4-2 format" ...
 ##  $ ndcPackageFmt11          : chr  "00002120010" "00002120030" "00002120050" "00002140701" ...
 ```
@@ -275,27 +275,27 @@ d[sample(seq(1, nrow(d)), 10), c("ndcpackagecode", "fmtPackageCode", "ndcPackage
 
 ```
 ##        ndcpackagecode fmtPackageCode ndcPackageFmt11
-## 73202    49349-230-02   5-3-2 format     49349023002
-## 103919   55289-223-60   5-3-2 format     55289022360
-## 81080    50607-5700-2   5-4-1 format     50607570002
-## 27031    11822-9017-2   5-4-1 format     11822901702
-## 12870    0378-6440-05   4-4-2 format     00378644005
-## 11848    0378-1452-05   4-4-2 format     00378145205
-## 105408   55312-908-40   5-3-2 format     55312090840
-## 5104     0115-8322-13   4-4-2 format     00115832213
-## 42152    33992-4949-1   5-4-1 format     33992494901
-## 77153    49972-008-05   5-3-2 format     49972000805
-##                                                             substancename
-## 73202                                             BUPROPION HYDROCHLORIDE
-## 103919                                            TRAZODONE HYDROCHLORIDE
-## 81080                      BENZALKONIUM CHLORIDE; LIDOCAINE HYDROCHLORIDE
-## 27031         AVOBENZONE; HOMOSALATE; OCTISALATE; OCTOCRYLENE; OXYBENZONE
-## 12870                                             VERAPAMIL HYDROCHLORIDE
-## 11848                                                           ESTRADIOL
-## 105408 ACETAMINOPHEN; DEXTROMETHORPHAN HYDROBROMIDE; DOXYLAMINE SUCCINATE
-## 5104                                                           ALPRAZOLAM
-## 42152                                                             ALCOHOL
-## 77153                                              CARBON DIOXIDE; OXYGEN
+## 119332   55289-511-90   5-3-2 format     55289051190
+## 170299   68084-964-25   5-3-2 format     68084096425
+## 40510    21130-604-85   5-3-2 format     21130060485
+## 155653   64117-227-01   5-3-2 format     64117022701
+## 66887    42248-126-02   5-3-2 format     42248012602
+## 163551   65923-505-28   5-3-2 format     65923050528
+## 162432   65862-054-30   5-3-2 format     65862005430
+## 21250    0781-5950-10   4-4-2 format     00781595010
+## 91193    50181-0050-1   5-4-1 format     50181005001
+## 165538   66949-994-16   5-3-2 format     66949099416
+##                                                                                                                                   substancename
+## 119332                                                                                                                  OXYCODONE HYDROCHLORIDE
+## 170299                                                                                                                         PROPYLTHIOURACIL
+## 40510                                                                                                                                 IBUPROFEN
+## 155653                                                                                                               EUPHORBIA RESINIFERA RESIN
+## 66887                                                                                                                                OCTINOXATE
+## 163551                                                                                                                             CLOTRIMAZOLE
+## 162432                                                                                                                              SIMVASTATIN
+## 21250                                                                                                            VALSARTAN; HYDROCHLOROTHIAZIDE
+## 91193  CEANOTHUS AMERICANUS LEAF; SENNA LEAF; CHIONANTHUS VIRGINICUS BARK; ARSENIC TRIOXIDE; LYCOPODIUM CLAVATUM SPORE; SEPIA OFFICINALIS JUICE
+## 165538                                                                                                                            CHLOROXYLENOL
 ```
 
 
