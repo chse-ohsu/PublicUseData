@@ -1,0 +1,16 @@
+## NDC
+
+Import the NDC translation dataset.
+See the [NDC](https://github.com/chse-ohsu/PublicUseData/tree/master/NDC) folder
+in the [PublicUseData](https://github.com/chse-ohsu/PublicUseData) repository on GitHub for details.
+
+```{r}
+url <- "https://github.com/chse-ohsu/PublicUseData/blob/master/NDC/NDCTranslationTable.zip?raw=true"
+f <- tempfile()
+download.file(url, f, mode="wb")
+file.info(f)
+unzip(f, list=TRUE)
+unzip(f, exdir=tempdir())
+ndcMaster <- fread(file.path(tempdir(), "NDCTranslationTable.txt"),
+                   colClasses=rep("character", 22))
+```
