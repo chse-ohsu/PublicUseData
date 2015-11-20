@@ -1,0 +1,6 @@
+setwd("H:/CHSE/Projects/Sandbox/NDCTranslation")
+path <- getwd()
+f1 <- file.path(path, "createTranslationTable.Rmd")
+f2 <- file.path(path, "README.md")
+require(knitr)
+knit(f1, f2)
