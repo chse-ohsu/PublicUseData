@@ -1,5 +1,7 @@
 # Primary Care Service Area (PCSA)
 
+THe data source is [The Dartmouth Atlas.](http://www.dartmouthatlas.org/)
+
 * [PCSA Data Download – 2010 (Census Tract Basis)](http://www.dartmouthatlas.org/tools/downloads.aspx?tab=42)
 * [Data dictionary](http://www.dartmouthatlas.org/downloads/pcsa/Data_Dictionary_PCSAv3.1_Sept2013.pdf)
 
