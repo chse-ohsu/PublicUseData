@@ -8,5 +8,6 @@ The repository contains a mix of the data itself and/or machine-readable code to
 * [NDC](https://github.com/chse-ohsu/PublicUseData/tree/master/NDC) National Drug Code Directory
 * [PCSA](https://github.com/chse-ohsu/PublicUseData/tree/master/PCSA) Primary Care Service Area
 * [RUCA](https://github.com/chse-ohsu/PublicUseData/tree/master/RUCA) Rural-Urban Commuting Area Codes
+* [GEMs](https://github.com/chse-ohsu/PublicUseData/tree/master/GEMs) General Equivalence Mappings
 
 An awesome resource for public use data is [Anthony Damico's](https://github.com/ajdamico/asdfree) GitHub repository.
