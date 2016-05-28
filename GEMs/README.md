@@ -10,6 +10,17 @@ Sources:
 
 **Warning**
 
+Update to warning/"Some context" below... it looks like GEMS may be gaining wider adoption, per this email from OHSU billing expert Jan Gollihur-Davidson. (It appears GEMS is the back-end data source for the system she refers to.)
+
+```
+From: Jan Gollihur-Davidson 
+Sent: Thursday, May 26, 2016 2:28 PM
+To: Stephanie Renfro
+Subject: guess what I got...
+
+Hi Stephanie, in a short amount of time I will be able to access a system that will convert ICD-9’s into ICD-10’s by range instead of individual codes. I can run the ranges through this system and it will put them on the spread sheet like this…I figure I will be able to learn and use it in a couple days. I can do this for you now if you like.  jan
+```
+
 Some context:
 
 > From: OLIVER James [mailto:james.oliver@state.or.us]   
