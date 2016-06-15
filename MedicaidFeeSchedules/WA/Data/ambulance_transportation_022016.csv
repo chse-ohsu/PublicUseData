@@ -1,0 +1,15 @@
+Code Status Indicator,Code,Description,Max Allow Fee,Limits
+,A0430,"Ambulance service, conventional air services, transport, one way (fixed wing)",$910.81 ,Per client transported.
+,A0431,"Ambulance service, conventional air services, transport, one way (rotary wing)",$804.45 ,Per client transported.
+,A0435,"Fixed wing air mileage, per statute mile",$5.50/air mile,"One way, per flight, equally divided by the number of clients transported."
+,A0436,"Rotary wing air mileage, per statute mile",$13.31/air mile,"One way, per flight, equally divided by the number of clients transported."
+,A0428,"Ambulance service, basic life support, non-emergency transport (BLS)",$115.34 ,"Origin and destination modifiers required.  For each additional client, use modifier GM in addition to the origin and destination modifiers."
+,A0429,"Ambulance service, basic life support, emergency transport (BLS-emergency) ",$115.34 ,"Origin and destination modifiers required.  For each additional client, use modifier GM in addition to the origin and destination modifiers."
+,A0426,"Ambulance service, advanced life support non-emergency transport, level 1 (ALS 1)",$168.43 ,"Origin and destination modifiers required.  For each additional client, use modifier GM in addition to the origin and destination modifiers."
+,A0427,"Ambulance service, advanced life support, emergency transport, level 1 (ALS 1 emergency)",$168.43 ,"Origin and destination modifiers required.  For each additional client, use modifier GM in addition to the origin and destination modifiers."
+,A0433,"Advanced life support, level 2 (ALS 2)",$168.43 ,"Origin and destination modifiers required.  For each additional client, use modifier GM in addition to the origin and destination modifiers."
+,A0434,Specialty care transport (SCT),$168.43 ,"Origin and destination modifiers required.  For each additional client, use modifier GM in addition to the origin and destination modifiers."
+,A0425,"Ground mileage, per statute mile",$5.08/ mile,Origin and destination modifiers required.
+,A0170,"Transportation ancillary: parking fees, tolls, other Invoice required.",BR,Origin and destination modifiers required.  
+,A0424,"Extra ambulance attendant, ground (ALS or BLS) or air (fixed or rotary winged); (requires medical review)",$23.18 ,"Pertinent documentation to evaluate medical appropriateness should be included when this code is reported. Origin and destination modifiers required. Justification required: * The client weighs 300 pounds or more; or * Client is violent or difficult to move safely; or * More than one client is being transported, and each requires medical attention and/or close monitoring. Note: DSHS pays for an extra attendant in ground ambulance transports only.  No payment is made for an extra attendant in air ambulance transports."
+,A0998,"Ambulance response and treatment, no transport ",NC,Code not payable.  Used for data collection purposes only.
