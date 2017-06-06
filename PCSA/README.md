@@ -22,10 +22,10 @@ grabPCSA <- function (url) {
   D[, names(D) %in% vars, with=FALSE]
 }
 urlPath <- "http://www.dartmouthatlas.org/downloads/pcsa/"
-pcsa1 <- grabPCSA(sprintf("%s/%s", urlPath, "p_103113_1.dbf")
-pcsa2 <- grabPCSA(sprintf("%s/%s", urlPath, "p_103113_2.dbf")
-pcsa3 <- grabPCSA(sprintf("%s/%s", urlPath, "p_103113_3.dbf")
-pcsa4 <- grabPCSA(sprintf("%s/%s", urlPath, "p_103113_4.dbf")
+pcsa1 <- grabPCSA(sprintf("%s/%s", urlPath, "p_103113_1.dbf"))
+pcsa2 <- grabPCSA(sprintf("%s/%s", urlPath, "p_103113_2.dbf"))
+pcsa3 <- grabPCSA(sprintf("%s/%s", urlPath, "p_103113_3.dbf"))
+pcsa4 <- grabPCSA(sprintf("%s/%s", urlPath, "p_103113_4.dbf"))
 byVar <- c("PCSA", "PCSA_ST")
 pcsa <- merge(pcsa1, pcsa2, by=byVar)
 pcsa <- merge(pcsa , pcsa3, by=byVar)
